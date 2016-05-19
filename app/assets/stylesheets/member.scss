@@ -1,3 +1,32 @@
 // Place all the styles related to the member controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  overflow: auto;
+}
+
+a.navbar-brand {
+  padding: 5px;
+}
+
+.navbar-brand {
+  height: 75px;
+  position:relative;
+  span{
+    vertical-align: bottom;
+    color:#2B99FF;
+  }
+}
+
+.shape {
+  height: 50px;
+  width: 44px;
+  border-top: 3.5px solid #000;
+  -moz-transform: rotate(17deg);
+  -webkit-transform: rotate(17deg);
+  transform: rotate(17deg);
+  position:absolute;
+  top:13px;
+  right:51px;
+}

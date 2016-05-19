@@ -6,7 +6,7 @@ feature "signing in" do
   def fill_in_signin_fields
     fill_in "member[email]", with: member.email
     fill_in "member[password]", with: member.password
-    click_button "Log in"
+    click_button "Sign in"
   end
 
   scenario "visiting the site to sign in" do
