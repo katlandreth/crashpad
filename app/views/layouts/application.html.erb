@@ -19,7 +19,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
        	<li>
-       		<%= link_to('Logout', destroy_member_session_path, :method => :delete) %>
+          <% if member_signed_in? %>
+       		 <%= link_to('Logout', destroy_member_session_path, :method => :delete) %>
+          <% end %>
        	</li>
       </ul>
       </div>
