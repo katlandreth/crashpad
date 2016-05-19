@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <header><nav></nav><%= link_to('Logout', destroy_member_session_path, :method => :delete) %></header>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <%= yield %>
 
 </body>
