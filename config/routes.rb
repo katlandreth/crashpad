@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'members/index'
 
   resources :guest_roles
+  # resources :host:roles
+  resources :profiles
 
   devise_for :members, controllers: {registrations: 'registrations'}
   # The priority is based upon order of creation: first created -> highest priority.
