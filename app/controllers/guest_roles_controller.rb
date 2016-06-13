@@ -14,11 +14,11 @@ class GuestRolesController < ApplicationController
 
   def create
     @guest = GuestRole.new(guest_params)
-    # if @guest.save!
-    #   redirect_to controller: 'profile', action: 'new'
-    # else
-    #   render 'new'
-    # end
+    if @guest.save!
+      redirect_to controller: 'profiles', action: 'new'
+    else
+      render 'new'
+    end
   end
 
   def edit

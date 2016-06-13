@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  respond_to :json, :js
+  respond_to :json, :js, :html
 
   def index
   end
@@ -14,11 +14,11 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
-    # if @guest.save!
-    #   redirect_to controller: 'profile', action: 'new'
-    # else
-    #   render 'new'
-    # end
+    if @profile.save!
+      redirect_to profile_path(:id)
+    else
+      render 'new'
+    end
   end
 
   def edit

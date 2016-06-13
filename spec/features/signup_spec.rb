@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "visiting website to sign up" do
+feature "visiting website to sign up," do
   let(:member) {FactoryGirl.create(:member)}
 
   def fill_in_signup_fields
@@ -12,12 +12,13 @@ feature "visiting website to sign up" do
   def fill_in_profile_fields
     fill_in "profile[first_name]", with: "Eren"
     fill_in "profile[last_name]", with: "Jaeger"
-    choose "non-smoker"
+    select "I'm not a smoker", from: 'profile_smoker'
+    select "I'm not a pet owner", from: 'profile_pet_owner'
   end
 
   def fill_in_guest_role_fields
-    fill_in "guest_role[smoking_preference]"
-    fill_in "guest_role[pet_preference]"
+    select 'no smoking allowed', from: 'guest_role_smoking_preference'
+    select 'no pets allowed', from: 'guest_role_pet_preference'
   end
 
 
@@ -33,13 +34,13 @@ feature "visiting website to sign up" do
     expect(page).to have_content("Will you be a host or a guest?")
     click_link "guest-only"
 
-    # fill_in_guest_role_fields
-    # click_button "Next step"
-    # expect(page).to have_content("Now, tell us a little about yourself.")
-    #
-    # fill_in_profile_fields
-    # click_button "Finish signup"
-    # expect(page).to have_content("Thanks for signing up! You can edit your info or add a Host account to your membership by visiting your profile page.")
+    fill_in_guest_role_fields
+    click_button "Next step"
+    expect(page).to have_content("Now, tell us a little about yourself.")
+
+    fill_in_profile_fields
+    click_button "Finish"
+    expect(page).to have_content("Thanks for signing up! You can edit your info or add a Host account to your membership here on your profile page.")
   end
 
 end

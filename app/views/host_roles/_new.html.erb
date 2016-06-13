@@ -6,7 +6,6 @@
 </a>
 
 <div class="collapse" id="guestOnly">
-  <p>As a Guest, you can set some default preferences. You can always override these when you're searching for locations.</p>
   <%= simple_form_for(@guest, as: :guest_role, url: guest_roles_path, remote: true) do |f| %>
     <%= f.error_notification %>
     <%= f.input :member_id, as: :hidden, :input_html => { :value => current_member.id }%>
@@ -16,6 +15,6 @@
     <div class="form-group">
       <%= f.input :pet_preference, collection: ["pets allowed", "no pets allowed", "no preference"], selected: "no preference", class: "form-control" %>
     </div>
-    <%= f.submit "Next step", class: "btn btn-primary" %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
