@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_one :guest_role
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

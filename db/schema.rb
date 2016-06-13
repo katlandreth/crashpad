@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519201726) do
+ActiveRecord::Schema.define(version: 20160610160151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guest_roles", force: :cascade do |t|
+    t.string   "smoking_preference", default: "no preference"
+    t.string   "pet_preference",     default: "no preference"
+    t.integer  "member_id"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "guest_roles", ["member_id"], name: "index_guest_roles_on_member_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,4 +44,5 @@ ActiveRecord::Schema.define(version: 20160519201726) do
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "guest_roles", "members"
 end
