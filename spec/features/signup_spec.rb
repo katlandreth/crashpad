@@ -30,7 +30,7 @@ feature "visiting website to sign up" do
 
     fill_in_signup_fields
     click_button "Create"
-    expect(page).to have_content("Will you be a host, guest, or both?")
+    expect(page).to have_content("Will you be a host or a guest?")
     click_link "guest-only"
 
     # fill_in_guest_role_fields
