@@ -21,6 +21,11 @@ feature "visiting website to sign up," do
     select 'no pets allowed', from: 'guest_role_pet_preference'
   end
 
+  def fill_in_host_role_fields
+    select 'no smoking allowed', from: 'guest_role_smoking_preference'
+    select 'no pets allowed', from: 'guest_role_pet_preference'
+  end
+
 
   scenario "a user signs up as a Guest successfully", :js => true do
     visit root_path
