@@ -48,4 +48,53 @@ feature "visiting website to sign up," do
     expect(page).to have_content("Thanks for signing up! You can edit your info or add a Host account to your membership here on your profile page.")
   end
 
+
+  scenario "a user signs up as a Host successfully", :js => true do
+    visit root_path
+    expect(page).to have_content("Please sign in, or sign up to continue.")
+
+    click_link "Sign up"
+    expect(page).to have_content("First, let's create your login information.")
+
+    fill_in_signup_fields
+    click_button "Create"
+    expect(page).to have_content("Will you be a host or a guest?")
+    click_link "host-only"
+
+    fill_in_host_role_fields
+    click_button "Next step"
+    expect(page).to have_content("Now, tell us a little about yourself.")
+
+    fill_in_profile_fields
+    click_button "Finish"
+    expect(page).to have_content("Thanks for signing up! You can edit your info or add a Guest account to your membership here on your profile page.")
+  end
+
+  # scenario "a user starts to sign up, but abandons the process before finishing member creation", :js => true do
+  #   visit root_path
+  #   expect(page).to have_content("Please sign in, or sign up to continue.")
+  #
+  #   click_link "Sign up"
+  #   expect(page).to have_content("First, let's create your login information.")
+  #
+  #   fill_in_signup_fields
+  #   find(button.close).click
+  #   expect(page).to have_content("Your Crashpad account was not created.")
+  # end
+  #
+  # scenario "a user starts to sign up, but abandons the process after finishing member creation", :js => true do
+  #   visit root_path
+  #   expect(page).to have_content("Please sign in, or sign up to continue.")
+  #
+  #   click_link "Sign up"
+  #   expect(page).to have_content("First, let's create your login information.")
+  #
+  #   fill_in_signup_fields
+  #   click_button "Create"
+  #   expect(page).to have_content("Will you be a host or a guest?")
+  #
+  #   find(button.close).click
+  #   expect(page).to have_content("Your Crashpad account was created, but we still need some more information. You can log in and browse listings, but you won't be able to make a reservation as a guest, or create property listings as a host until you complete your profile.")
+  # end
+
 end
