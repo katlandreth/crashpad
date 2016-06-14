@@ -1,0 +1,6 @@
+<h3>Will you be a host or a guest?</h3>
+<p>Please choose one role for now. You can add another later if you want to be both a host and a guest.</p>
+
+<%= link_to "Guest Only", new_guest_role_path, id: "guest-only", remote: true%>
+<%= link_to "Host Only", new_host_role_path, id: "host-only", remote: true %>
+<div id="role-form"></div>

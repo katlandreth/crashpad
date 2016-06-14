@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'database_cleaner'
 
 feature "visiting website to sign up," do
   let(:member) {FactoryGirl.create(:member)}
@@ -22,8 +23,8 @@ feature "visiting website to sign up," do
   end
 
   def fill_in_host_role_fields
-    select 'no smoking allowed', from: 'guest_role_smoking_preference'
-    select 'no pets allowed', from: 'guest_role_pet_preference'
+    select 'no smoking allowed', from: 'host_role_smoking_preference'
+    select 'no pets allowed', from: 'host_role_pet_preference'
   end
 
 

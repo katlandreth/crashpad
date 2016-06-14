@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'members/index'
 
   resources :guest_roles
-  # resources :host:roles
+  resources :host_roles
   resources :profiles
 
   devise_for :members, controllers: {registrations: 'registrations'}

@@ -1,11 +1,4 @@
-<h3>Will you be a host or a guest?</h3>
-<p>Please choose one role for now. You can add another later if you want to be both a host and a guest.</p>
-
-<a id="guest-only" role="button" data-toggle="collapse" href="#guestOnly" aria-expanded="false" aria-controls="guestOnly">
-  Guest Only
-</a>
-
-<div class="collapse" id="guestOnly">
+<div id="guestOnly">
   <p>As a Guest, you can set some default preferences. You can always override these when you're searching for locations.</p>
   <%= simple_form_for(@guest, as: :guest_role, url: guest_roles_path, remote: true) do |f| %>
     <%= f.error_notification %>

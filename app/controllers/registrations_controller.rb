@@ -15,11 +15,20 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource sign_up_params
     if resource.save!
       sign_in(resource)
-      redirect_to controller: 'guest_roles', action: 'new'
+      # redirect_to controller: 'guest_roles', action: 'new'
+      render 'role'
     else
       render 'new'
     end
   end
+
+  # def role
+  #   if params[:role] == 'guest'
+  #     redirect_to controller: 'guest_roles', action: 'new'
+  #   elsif params[:role] == 'host'
+  #     redirect_to controller: 'host_roles', action: 'new'
+  #   end
+  # end
 
   # GET /resource/edit
   # def edit

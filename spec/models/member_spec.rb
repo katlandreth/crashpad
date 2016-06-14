@@ -11,4 +11,11 @@ RSpec.describe Member, type: :model do
     it { expect(member).to validate_length_of(:password).is_at_least(8) }
     it { expect(member).to validate_confirmation_of(:password) }
   end
+
+  describe "ActiveRecord associations" do
+    it { expect(member).to have_one(:guest_role) }
+    it { expect(member).to have_one(:host_role) }
+    it { expect(member).to have_one(:profile) }
+  end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613212726) do
+ActiveRecord::Schema.define(version: 20160614182328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20160613212726) do
   end
 
   add_index "guest_roles", ["member_id"], name: "index_guest_roles_on_member_id", using: :btree
+
+  create_table "host_roles", force: :cascade do |t|
+    t.string   "smoking_preference", default: "no preference"
+    t.string   "pet_preference",     default: "no preference"
+    t.integer  "member_id"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "host_roles", ["member_id"], name: "index_host_roles_on_member_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -58,5 +68,6 @@ ActiveRecord::Schema.define(version: 20160613212726) do
   add_index "profiles", ["member_id"], name: "index_profiles_on_member_id", using: :btree
 
   add_foreign_key "guest_roles", "members"
+  add_foreign_key "host_roles", "members"
   add_foreign_key "profiles", "members"
 end

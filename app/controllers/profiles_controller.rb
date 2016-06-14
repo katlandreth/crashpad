@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @profile = Profile.find(params[:id])
   end
 
   def new
@@ -15,7 +16,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save!
-      redirect_to profile_path(:id)
+      redirect_to profile_path(@profile.id)
     else
       render 'new'
     end
