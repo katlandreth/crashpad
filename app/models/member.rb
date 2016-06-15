@@ -7,9 +7,11 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
 
-  validates :email, uniqueness: { case_sensitive: true, message: "%{value} needs to be unique" }
+  validates :email, presence: true
+  validates :email, uniqueness: { case_sensitive: false, message: "%{value} has already been taken" }
   validates_format_of :email, with: /.+@.+\..+/i, message: "%{value} needs to be in the format email@example.com"
   validates :password, presence: true, length: { minimum: 8 }
+  validates :password_confirmation, presence: true
   validates :password, confirmation: true
 
 end

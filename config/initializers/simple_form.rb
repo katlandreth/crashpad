@@ -48,7 +48,7 @@ SimpleForm.setup do |config|
     # If you want to display the full error message for the attribute, you can
     # use the component :full_error, like:
     #
-    # b.use :full_error, wrap_with: { tag: :span, class: :error }
+     b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -117,7 +117,7 @@ SimpleForm.setup do |config|
   # in this configuration, which is recommended due to some quirks from different browsers.
   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
-  config.browser_validations = false
+  config.browser_validations = true
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]

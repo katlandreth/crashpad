@@ -3,15 +3,15 @@
   <div class="error-messages"><%= devise_error_messages! %></div>
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, class: "form-control", id: "new-member-email" %>
+    <%= f.email_field :email, autofocus: true, required: true, class: "form-control", id: "new-member-email" %>
   </div>
   <div class="form-group">
     <%= f.label :password %><br />
-    <%= f.password_field :password, class: "form-control", id: "new-member-password" %>
+    <%= f.password_field :password, required: true, class: "form-control", id: "new-member-password" %>
   </div>
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: "form-control", id: "new-member-password-confirmation" %>
+    <%= f.password_field :password_confirmation, required: true, class: "form-control", id: "new-member-password-confirmation" %>
   </div>
   <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>
