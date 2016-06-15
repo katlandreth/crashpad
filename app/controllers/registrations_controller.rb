@@ -11,24 +11,20 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  def create
-    build_resource sign_up_params
-    if resource.save!
-      sign_in(resource)
-      # redirect_to controller: 'guest_roles', action: 'new'
+   def create
+     @member = build_resource sign_up_params
+    if @member.save
+      sign_in(@member)
       render 'role'
     else
-      render 'new'
+      respond_to do |format|
+        format.json { render json: @member.errors, status: :unprocessable_entity }
+        format.js { render 'new' }
+      end
+      # render 'new'
     end
   end
 
-  # def role
-  #   if params[:role] == 'guest'
-  #     redirect_to controller: 'guest_roles', action: 'new'
-  #   elsif params[:role] == 'host'
-  #     redirect_to controller: 'host_roles', action: 'new'
-  #   end
-  # end
 
   # GET /resource/edit
   # def edit
