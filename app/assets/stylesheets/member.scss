@@ -30,3 +30,59 @@ a.navbar-brand {
   top:13px;
   right:51px;
 }
+
+.flash_success,
+.flash_error,
+.flash_notice,
+.flash-open {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    z-index: 1000;
+    transform: translate(-50%, -200px);
+    text-align: center;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+    padding: 20px;
+    font-family: "Montserrat";
+    text-transform: capitalize;
+    animation: fade 4s ease;
+}
+
+.flash_success,
+.flash_notice {
+  color: rgb(65, 161, 240);
+  border: 3px solid rgb(65, 161, 240);
+  &:before {
+    content: '✔';
+    font-size: 25px;
+    padding:10px;
+  }
+}
+
+.flash_error {
+  color: rgb(139, 24, 32);
+  border: 3px solid rgb(139, 24, 32);
+  &:before {
+    content: '⦻';
+    font-size: 25px;
+    padding:10px;
+  }
+}
+
+@keyframes fade {
+0%,100% {
+  transform: translate(-50%, -200px);
+ }
+10%,90% {
+  transform: translate(-50%, 0);
+  }
+}
+
+
+
+h3.guest-link,
+h3.host-link {
+  display:inline-block;
+  margin:20px;
+  text-align:center;
+}

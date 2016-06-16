@@ -1,1 +1,3 @@
-$('#role-form').html("<%= escape_javascript(render partial: 'guest_roles/new') %>")
+$('.content-container').html("<%= escape_javascript(render partial: 'members/show') %>");
+$('#role-form').html("<%= escape_javascript(render partial: 'guest_roles/new') %>");
+$('.modal-close').html("<%= escape_javascript(render partial: 'shared/modal_close') %>");

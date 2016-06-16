@@ -71,17 +71,17 @@ feature "visiting website to sign up," do
     expect(page).to have_content("Thanks for signing up! You can edit your info or add a Guest account to your membership here on your profile page.")
   end
 
-  # scenario "a user starts to sign up, but abandons the process before finishing member creation", :js => true do
-  #   visit root_path
-  #   expect(page).to have_content("Please sign in, or sign up to continue.")
-  #
-  #   click_link "Sign up"
-  #   expect(page).to have_content("First, let's create your login information.")
-  #
-  #   fill_in_signup_fields
-  #   find(button.close).click
-  #   expect(page).to have_content("Your Crashpad account was not created.")
-  # end
+  scenario "a user starts to sign up, but abandons the process before finishing member creation", :js => true do
+    visit root_path
+    expect(page).to have_content("Please sign in, or sign up to continue.")
+
+    click_link "Sign up"
+    expect(page).to have_content("First, let's create your login information.")
+
+    fill_in_signup_fields
+    find('button.close').click
+    expect(page).to have_content("Your Crashpad Account Was Not Created.")
+  end
   #
   # scenario "a user starts to sign up, but abandons the process after finishing member creation", :js => true do
   #   visit root_path

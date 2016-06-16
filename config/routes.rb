@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'members/index'
-
+  # get 'members/index'
+  resources :members, only: [:index]
   resources :guest_roles
   resources :host_roles
   resources :profiles
