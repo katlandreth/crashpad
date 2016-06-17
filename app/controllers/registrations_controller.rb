@@ -21,8 +21,11 @@ class RegistrationsController < Devise::RegistrationsController
         format.json { render json: @member.errors, status: :unprocessable_entity }
         format.js { render 'new' }
       end
-      # render 'new'
     end
+  end
+  
+  def role
+    @member = Member.find(params[:id])
   end
 
 

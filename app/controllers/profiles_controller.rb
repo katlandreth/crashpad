@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save!
-      redirect_to profile_path(@profile.id)
+      redirect_to member_path(@profile.member_id)
     else
       render 'new'
     end

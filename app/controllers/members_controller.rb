@@ -7,7 +7,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:member_id])
+    @member = current_member
   end
 
 end
