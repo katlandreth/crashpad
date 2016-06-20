@@ -13,6 +13,13 @@
        <%= link_to('Logout', destroy_member_session_path, :method => :delete) %>
       <% end %>
     </li>
+    <li>
+      <% flash.each do |name, msg| %>
+        <% if msg.is_a?(String) %>
+          <%= content_tag :button, flash_button(name), :class => "flash_button flash_#{name}" %>
+        <% end %>
+      <% end %>
+    </li>
   </ul>
   </div>
 </div>
