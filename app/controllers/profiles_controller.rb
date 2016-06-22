@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @profile = current_member.profile
   end
 
   def update
