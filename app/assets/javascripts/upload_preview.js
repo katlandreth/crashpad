@@ -1,7 +1,10 @@
-$(document).ready(function(){
+var ready;
+ready = function() {
+  console.log('document ready');
   $("body").on('change', '.file', function(event){
+    console.log('input change');
     var preview = $(".upload-preview img");
-    console.log('file input change');
+    console.log('assigned preview variable');
     var input = $(event.currentTarget);
     var file = input[0].files[0];
     var reader = new FileReader();
@@ -19,4 +22,7 @@ $(document).ready(function(){
     preview.hide();
   });
 
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

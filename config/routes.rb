@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   # get 'members/index'
   resources :guest_roles
   resources :host_roles
-  resources :profiles
+  resources :profiles do
+    get 'remove_image', as: :remove_image
+  end
 
   devise_for :members, controllers: {registrations: 'registrations'}
   resources :members, only: [:index, :show]
+
+  # get 'profiles/:id' => 'profiles#remove_image', as: :remove_image
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -2,12 +2,14 @@
   <div class="modal-close"><%= render 'shared/modal_close' %></div>
   <h4 class="modal-title">Header</h4>
 </div>
+<%= form_for @profile do |f| %>
 <div class="modal-body">
   <div class="upload-preview">
     <img src=""/>
   </div>
-  <input type="file" class="file" id="upload-profile-picture" />
+  <%= f.file_field :image, {id: 'upload-profile-picture', class: 'file'} %>
 </div>
 <div class="modal-footer">
-  <button>Upload Profile Picture</button>
+  <%= f.submit 'Upload Profile Picture'%>
 </div>
+<% end %>

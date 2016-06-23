@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'database_cleaner'
 
 feature "visiting the website to sign in" do
   let(:member) {FactoryGirl.create(:member)}
