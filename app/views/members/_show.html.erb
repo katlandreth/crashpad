@@ -1,12 +1,16 @@
 <h2>Your Membership info.</h2>
 Thanks for signing up! You can edit your info or add a <%= host_or_guest(current_member) %> account to your membership here on your profile page.
-<%= controller.controller_name%>
+
 
 <div class="membership-status"><%#= membership-status-message(@member) %></div>
 
 <div class="profile-image">
-  <%= image_tag @member.profile.image, size: "200x200" %>
+  <% if current_member.profile %>
+    <%= image_tag current_member.profile.image, size: "200x200" %>
+    <%= link_to "delete", profile_remove_image_path(current_member.profile.id), data: { confirm: "You sure?" } %>
+  <% else %>
+    <%= image_tag 'mystery-man.png', size: "200x200" %>
+  <% end %>
 </div>
-<%= link_to "delete", profile_remove_image_path(@member.profile.id), data: { confirm: "You sure?" } %>
 
 <%= link_to 'Add a Profile Picture', edit_profile_path(current_member), class: 'modal-trigger', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %>

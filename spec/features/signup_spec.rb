@@ -2,7 +2,10 @@ require 'rails_helper'
 require 'database_cleaner'
 
 feature "visiting website to sign up," do
-  let(:member) {FactoryGirl.create(:member)}
+  let(:member) do
+    profile = FactoryGirl.create(:profile)
+    FactoryGirl.create(:member, profile: profile)
+  end
 
   def fill_in_signup_fields
     fill_in "new-member-email", with: "example@email.com"
