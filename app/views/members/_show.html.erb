@@ -5,8 +5,8 @@ Thanks for signing up! You can edit your info or add a <%= host_or_guest(current
 <div class="membership-status"><%#= membership-status-message(@member) %></div>
 
 <div class="profile-image">
-  <%= display_profile_image(@member) %>
+  <%= image_tag @member.profile.image, size: "200x200" %>
 </div>
+<%= link_to "delete", profile_remove_image_path(@member.profile.id), data: { confirm: "You sure?" } %>
 
-<!-- <button class="modal-trigger">Add a Profile Picture</button> -->
 <%= link_to 'Add a Profile Picture', edit_profile_path(current_member), class: 'modal-trigger', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %>
