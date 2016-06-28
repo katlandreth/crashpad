@@ -14,4 +14,20 @@ class Member < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :password, confirmation: true
 
+  def has_profile?
+    profile != nil
+  end
+
+  def has_guest_role?
+    guest_role != nil
+  end
+
+  def has_host_role?
+    host_role != nil
+  end
+
+  def has_both_roles
+    has_guest_role && has_host_role
+  end
+
 end

@@ -1,7 +1,7 @@
 <h3>Now, tell us a little about yourself.</h3>
 <p>Information you add here will be visible to logged in Hosts and Guests. </p>
 
-<%= simple_form_for(@profile, as: :profile, url: profiles_path, remote: true) do |f| %>
+<%= simple_form_for(:profile, url: profiles_path, remote: true, html: {id: 'new_profile'}) do |f| %>
   <%= f.error_notification %>
   <%= f.input :member_id, as: :hidden, :input_html => { :value => current_member.id }%>
   <div class="form-group">

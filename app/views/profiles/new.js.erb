@@ -1,6 +1,6 @@
-$('.content-container').html("<%= escape_javascript(render partial: 'members/show') %>");
 $('.registration_form').html("<%= escape_javascript(render partial: 'profiles/new') %>");
-$('#new_profile').on('submit', function(){
+$('body').on('submit', '#new_profile', function(){
+  console.log('form submitted');
   $('button.close').click();
 })
 

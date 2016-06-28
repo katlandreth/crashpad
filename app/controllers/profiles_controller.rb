@@ -16,8 +16,10 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save!
+      flash[:notice] = 'Your profile was created'
       redirect_to member_path(@profile.member_id)
     else
+      flash.now[:notice] = 'Woops! Your profile wasn\'t created.'
       render 'new'
     end
   end

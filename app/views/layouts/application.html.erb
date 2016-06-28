@@ -11,7 +11,7 @@
   <nav class="navbar navbar-default">
     <%= render 'layouts/navbar'%>
   </nav>
-<div id="rails-flash-message"><%= render 'shared/flash_messages' %></div>
+<div id="rails-flash-message"><%= render 'shared/flash_messages', locals: { flash: flash } %></div>
 <div id="js-flash-message"></div>
 
 <div class="col-md-offset-2 col-md-8 content-container">

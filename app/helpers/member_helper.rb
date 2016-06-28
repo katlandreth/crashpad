@@ -1,14 +1,32 @@
 module MemberHelper
 
-  # I need two conditions, (I think.)
-  # If user isn't signed in, stay on page, flash not-created message.
-  # If user is signed in, but doesn't have a guest/host role || they don't have a profile, redirect to profile show, then flash finish the process message
-
   def signed_in?
     if member_signed_in?
       'signed-in'
     else
       'not-signed-in'
+    end
+  end
+
+  def profile_options(member)
+    if member.has_profile?
+      render partial: 'profiles/edit', locals: { member: member }
+    else
+      render partial: 'profiles/new', locals: { member: member }
+    end
+  end
+
+  def role_options(member)
+    if member.has_both_roles?
+      capture do
+        concat render partial: 'profiles/edit', locals: { member: member }
+        concat render partial: 'host_roles/edit', locals: { member: member }
+      end
+    elsif member.has_host_role?
+      render partial: 'host_roles/edit', locals: { member: member }
+    elsif member.has_guest_role?
+      render partial: 'guest_roles/edit', locals: { member: member }
+
     end
   end
 
