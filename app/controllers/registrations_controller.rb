@@ -15,6 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
      @member = build_resource sign_up_params
     if @member.save
       sign_in(@member)
+      flash[:success] = "Your account was created!"
       render 'role'
     else
       respond_to do |format|
@@ -23,7 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
   end
-  
+
   def role
     @member = Member.find(params[:id])
   end

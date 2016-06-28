@@ -4,6 +4,8 @@ $('body').on('submit', '#new_profile', function(){
   $('button.close').click();
 })
 
+$('#rails-flash-message').html("<%= escape_javascript(render partial: 'shared/flash_messages', locals: {flash: flash}) %>");
+
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
