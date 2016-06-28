@@ -82,7 +82,7 @@ feature "visiting website to sign up," do
     expect(page).to have_content("First, let's create your login information.")
 
     fill_in_signup_fields
-    find('button.close').click
+    find('button.close').trigger("click")
     expect(page).to have_content("Your Crashpad Account Was Not Created.")
   end
   #
