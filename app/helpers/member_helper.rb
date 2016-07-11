@@ -30,6 +30,14 @@ module MemberHelper
     end
   end
 
+  def member_options(member)
+    if member.has_profile?
+      render partial: 'members/edit', locals: { member: member }
+    else
+      render partial: 'members/new', locals: { member: member }
+    end
+  end
+
   def host_or_guest(member)
     unless member.host_role.nil?
       return "Guest"

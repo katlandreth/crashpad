@@ -26,8 +26,8 @@ class Member < ActiveRecord::Base
     host_role != nil
   end
 
-  def has_both_roles
-    has_guest_role && has_host_role
+  def has_both_roles?
+    has_guest_role? && has_host_role?
   end
 
 end
