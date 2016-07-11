@@ -10,6 +10,7 @@ require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require 'simple_bdd'
 require 'shoulda/matchers'
+require "pundit/rspec"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
