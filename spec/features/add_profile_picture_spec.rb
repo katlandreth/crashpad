@@ -14,8 +14,9 @@ feature "visiting their profile page," do
 
   scenario "a user uploads a profile picture successfully", :js => true do
     visit root_path
-    expect(page).to have_content("Please sign in, or sign up to continue.")
+    expect(page).to have_content("Welcome to Crashpad")
 
+    click_link "Sign in here"
     fill_in_signin_fields
     click_button "Sign in"
     expect(page).to have_content("Your Membership info.")

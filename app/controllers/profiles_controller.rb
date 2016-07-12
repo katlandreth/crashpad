@@ -1,20 +1,25 @@
 class ProfilesController < ApplicationController
   respond_to :json, :js, :html
+  before_action :authenticate_member!
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_profile, only: [:index, :show, :edit, :update, :destroy]
 
   def index
+    @profiles = Profile.all
   end
 
   def show
-    @profile = Profile.find(params[:id])
   end
 
   def new
     @profile = Profile.new
+    authorize @profile
     respond_with @profile
   end
 
   def create
     @profile = Profile.new(profile_params)
+    authorize @profile
     if @profile.save!
       flash[:notice] = 'Your profile was created'
       redirect_to member_path(@profile.member_id)
@@ -25,11 +30,9 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = current_member.profile
   end
 
   def update
-    @profile = current_member.profile
     if @profile.update_attributes(profile_params)
       flash[:success] = 'Your profile was updated.'
       redirect_to member_path(@profile.member_id)
@@ -54,6 +57,14 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def set_profile
+    @profile = current_member.profile
+  end
+
+  def authorize_profile
+    authorize @profile
+  end
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :smoker, :pet_owner, :member_id, :image)

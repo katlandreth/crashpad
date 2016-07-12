@@ -14,10 +14,10 @@ feature "visiting website to sign up," do
   end
 
   def fill_in_profile_fields
-    fill_in "profile[first_name]", with: "Eren"
-    fill_in "profile[last_name]", with: "Jaeger"
-    select "I'm not a smoker", from: 'profile_smoker'
-    select "I'm not a pet owner", from: 'profile_pet_owner'
+    find('#myModal #profile_first_name').set('Eren')
+    find('#myModal #profile_last_name').set('Jaeger')
+    find('#myModal #profile_smoker').find('option[value="false"]').select_option
+    find('#myModal #profile_pet_owner').find('option[value="false"]').select_option
   end
 
   def fill_in_guest_role_fields
@@ -33,7 +33,7 @@ feature "visiting website to sign up," do
 
   scenario "a user signs up as a Guest successfully", :js => true do
     visit root_path
-    expect(page).to have_content("Please sign in, or sign up to continue.")
+    expect(page).to have_content("Welcome to Crashpad")
 
     click_link "Sign up"
     expect(page).to have_content("First, let's create your login information.")
@@ -48,14 +48,14 @@ feature "visiting website to sign up," do
     expect(page).to have_content("Now, tell us a little about yourself.")
 
     fill_in_profile_fields
-    click_button "Finish"
+    find('#myModal .btn[type="submit"]').click
     expect(page).to have_content("Thanks for signing up! You can edit your info or add a Host account to your membership here on your profile page.")
   end
 
 
   scenario "a user signs up as a Host successfully", :js => true do
     visit root_path
-    expect(page).to have_content("Please sign in, or sign up to continue.")
+    expect(page).to have_content("Welcome to Crashpad")
 
     click_link "Sign up"
     expect(page).to have_content("First, let's create your login information.")
@@ -70,13 +70,13 @@ feature "visiting website to sign up," do
     expect(page).to have_content("Now, tell us a little about yourself.")
 
     fill_in_profile_fields
-    click_button "Finish"
+    find('#myModal .btn[type="submit"]').click
     expect(page).to have_content("Thanks for signing up! You can edit your info or add a Guest account to your membership here on your profile page.")
   end
 
   scenario "a user starts to sign up, but abandons the process before finishing member creation", :js => true do
     visit root_path
-    expect(page).to have_content("Please sign in, or sign up to continue.")
+    expect(page).to have_content("Welcome to Crashpad")
 
     click_link "Sign up"
     expect(page).to have_content("First, let's create your login information.")
