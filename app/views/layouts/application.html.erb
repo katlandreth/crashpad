@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Crashpad</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav class="navbar navbar-default">
-    <%= render 'layouts/navbar'%>
-  </nav>
-<div id="rails-flash-message"><%= render 'shared/flash_messages', locals: { flash: flash } %></div>
-<div id="js-flash-message"></div>
-
-<div class="col-md-12 content-container">
-  <%= yield %>
-</div>
-<%= render "shared/modal" %>
-</body>
+  <head>
+    <title>Crashpad</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <%= render 'layouts/navbar'%>
+    </nav>
+    <div id="rails-flash-message"><%= render 'shared/flash_messages', locals: { flash: flash } %></div>
+    <div id="js-flash-message"></div>
+    <div class="row">
+      <div class="col-md-12 content-container">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render 'shared/footer' %>
+    <%= render "shared/modal" %>
+  </body>
 </html>

@@ -1,37 +1,40 @@
-<h2>Your Membership info.</h2>
-Thanks for signing up! You can edit your info or add a <%= host_or_guest(current_member) %> account to your membership here on your profile page.
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2><%= @member.profile.first_name%>'s Membership Info</h2>
+    Thanks for signing up! You can edit your info or add a <%= host_or_guest(current_member) %> account to your membership here on your profile page.
 
+    <div class="membership-status"><%#= membership-status-message(@member) %></div>
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a class=" " data-toggle="tab" href="#profileOptionsTab"  aria-controls="profileOptionsTab">
+          Profile Options
+      </a></li>
 
-<div class="membership-status"><%#= membership-status-message(@member) %></div>
-<ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="active"><a class=" " data-toggle="tab" href="#profileOptionsTab"  aria-controls="profileOptionsTab">
-      Profile Options
-  </a></li>
+      <li role="presentation"><a class=" " data-toggle="tab" href="#memberOptionsTab"  aria-controls="memberOptionsTab">
+          Member Options
+      </a></li>
 
-  <li role="presentation"><a class=" " data-toggle="tab" href="#memberOptionsTab"  aria-controls="memberOptionsTab">
-      Member Options
-  </a></li>
+      <li role="presentation"><a class=" " data-toggle="tab" href="#roleOptionsTab"  aria-controls="roleOptionsTab">
+          Role Options
+      </a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" role="tabpanel" id="profileOptionsTab">
+        <div class="">
+          <%= profile_options(@member) %>
+        </div>
+      </div>
 
-  <li role="presentation"><a class=" " data-toggle="tab" href="#roleOptionsTab"  aria-controls="roleOptionsTab">
-      Role Options
-  </a></li>
-</ul>
-<div class="tab-content">
-  <div class="tab-pane active" role="tabpanel" id="profileOptionsTab">
-    <div class="">
-      <%= profile_options(@member) %>
-    </div>
-  </div>
+      <div class="tab-pane" role="tabpanel" id="roleOptionsTab">
+        <div class=" ">
+          <%= role_options(@member) %>
+        </div>
+      </div>
 
-  <div class="tab-pane" role="tabpanel" id="roleOptionsTab">
-    <div class=" ">
-      <%= role_options(@member) %>
-    </div>
-  </div>
-
-  <div class="tab-pane" role="tabpanel" id="memberOptionsTab">
-    <div class=" ">
-      <%= member_options(@member) %>
+      <div class="tab-pane" role="tabpanel" id="memberOptionsTab">
+        <div class=" ">
+          <%= member_options(@member) %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
