@@ -23,4 +23,30 @@ class ProfileDecorator
       "is a pet owner"
     end
   end
+
+  def image
+    @profile.image
+  end
+
+  def complete?
+    if @profile.attributes.values.select {|v| v == nil }.length > 0
+      false
+    else
+      true
+    end
+  end
+
+  def profile_status
+    if @profile.complete?
+      render 'profile_complete'
+    else
+      render 'profile_incomplete'
+    end
+  end
+
+  def percent_complete
+    if @profile.complete?
+      'onehundred'
+    else
+  end
 end
