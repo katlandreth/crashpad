@@ -14,15 +14,15 @@ feature "visiting their profile page," do
 
   scenario "a user uploads a profile picture successfully", :js => true do
     visit root_path
-    expect(page).to have_content("Welcome to Crashpad")
+    expect(page).to have_content("Welcome to crashpad")
 
     click_link "Sign in here"
     fill_in_signin_fields
     click_button "Sign in"
-    expect(page).to have_content("Your Membership info.")
+    expect(page).to have_content("Membership Info")
 
     click_link "Profile Options"
-    click_link "Add a Profile Picture"
+    click_link "Edit Profile Picture"
     attach_file "upload-profile-picture", Rails.root + 'spec/fixtures/test-upload.jpg'
     expect(page).to have_css("img[src*='data:image/jpeg;base64']") #upload_preview.js makes a base 64 img preview before upload
 

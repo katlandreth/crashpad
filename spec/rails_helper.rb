@@ -86,3 +86,13 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+Capybara::Webkit.configure do |config|
+  config.allow_url("maps.gstatic.com")
+  config.allow_url("maps.google.com")
+  config.allow_url("maps.googleapis.com")
+  config.allow_url("gg.google.com")
+  config.allow_url("www.google.com")
+  config.allow_url("fonts.googleapis.com")
+  config.allow_url("khms0.googleapis.com")
+end

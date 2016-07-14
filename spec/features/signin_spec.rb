@@ -15,7 +15,7 @@ feature "visiting the website to sign in" do
 
   scenario "an existing user signs in successfully" do
     visit root_path
-    expect(page).to have_content("Welcome to Crashpad")
+    expect(page).to have_content("Welcome to crashpad")
 
     click_link "Sign in here"
     fill_in_signin_fields

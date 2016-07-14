@@ -47,6 +47,6 @@ class ProfileDecorator
   def percent_complete
     if @profile.complete?
       'onehundred'
-    else
+    end
   end
 end

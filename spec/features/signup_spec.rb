@@ -33,7 +33,7 @@ feature "visiting website to sign up," do
 
   scenario "a user signs up as a Guest successfully", :js => true do
     visit root_path
-    expect(page).to have_content("Welcome to Crashpad")
+    expect(page).to have_content("Welcome to crashpad")
 
     click_link "Sign up"
     expect(page).to have_content("First, let's create your login information.")
@@ -45,7 +45,7 @@ feature "visiting website to sign up," do
 
     fill_in_guest_role_fields
     click_button "Next step"
-    expect(page).to have_content("Now, tell us a little about yourself.")
+    expect(page).to have_content("Tell us a little about yourself.")
 
     fill_in_profile_fields
     find('#myModal .btn[type="submit"]').click
@@ -55,7 +55,7 @@ feature "visiting website to sign up," do
 
   scenario "a user signs up as a Host successfully", :js => true do
     visit root_path
-    expect(page).to have_content("Welcome to Crashpad")
+    expect(page).to have_content("Welcome to crashpad")
 
     click_link "Sign up"
     expect(page).to have_content("First, let's create your login information.")
@@ -67,7 +67,7 @@ feature "visiting website to sign up," do
 
     fill_in_host_role_fields
     click_button "Next step"
-    expect(page).to have_content("Now, tell us a little about yourself.")
+    expect(page).to have_content("Tell us a little about yourself.")
 
     fill_in_profile_fields
     find('#myModal .btn[type="submit"]').click
@@ -76,7 +76,7 @@ feature "visiting website to sign up," do
 
   scenario "a user starts to sign up, but abandons the process before finishing member creation", :js => true do
     visit root_path
-    expect(page).to have_content("Welcome to Crashpad")
+    expect(page).to have_content("Welcome to crashpad")
 
     click_link "Sign up"
     expect(page).to have_content("First, let's create your login information.")
