@@ -1,1 +1,9 @@
-Thanks for signing up! You can edit your info or add a <%= host_or_guest(@profile) %> account to your membership here on your profile page.
+<div class="profile-image col-md-4">
+  <%= image_tag current_member.profile.image, size: "200x200" %></br>
+</div>
+
+<div class="col-md-8">
+  <h4><%= @profile.name %></h4>
+  <p><%= @profile.smoking_status %></p>
+  <p><%= @profile.pet_status %></p>
+</div>

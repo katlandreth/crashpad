@@ -1,5 +1,5 @@
 <div id="hostOnly">
-  <p>As a Host, you can choose some default settings for your locations listings. You can override these settings for individual locations.</p>
+  <p>As a Host, you can choose some default settings for your locations listings. You can override these settings for individual locations when you create new listings.</p>
   <%= simple_form_for(@host, as: :host_role, url: host_roles_path, remote: true) do |f| %>
     <%= f.error_notification %>
     <%= f.input :member_id, as: :hidden, :input_html => { :value => current_member.id }%>

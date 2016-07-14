@@ -1,22 +1,6 @@
-<h3>Now, tell us a little about yourself.</h3>
-<p>Information you add here will be visible to logged in Hosts and Guests. </p>
+<h3>Tell us a little about yourself.</h3>
+<p>Information you add here will be visible to logged in crashpad  members (both hosts, and guests). </p>
 
 <%= simple_form_for(:profile, url: profiles_path, remote: true, html: {id: 'new_profile'}) do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :member_id, as: :hidden, :input_html => { :value => current_member.id }%>
-  <div class="form-group">
-    <%= f.input :first_name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.input :last_name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <a href="#" data-toggle="popover" title="why we ask if you're a smoker" data-content="Some people have allergies, migranes, or other conditions that are triggered by the smell of smoke. Even if you don't smoke indoors, scents can transfer from clothing or other belongings and trigger responses in some people. As such, some hosts may prefer to accept reservations only from non-smoking guests.">why do we ask?</a>
-    <%= f.input :smoker, as: :select, collection: [["I'm not a smoker", false], ["I'm a smoker", true]], class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <a href="#" data-toggle="popover" title="why we ask if you're a pet owner" data-content="Some people have allergies, migranes, or other conditions that are triggered by pet fur or dander. Even if you don't have your pet with you, fur and dander can transfer from clothing or other belongings and trigger responses in some people. As such, some hosts may prefer to accept reservations only from guests who don't own pets.">why do we ask?</a>
-    <%= f.input :pet_owner, as: :select, collection: [["I'm not a pet owner", false], ["I'm a pet owner", true]], class: "form-control" %>
-  </div>
-  <%= f.submit "Finish", class: "btn btn-primary" %>
+  <%= render partial: 'profiles/form', locals: {f: f} %>
 <% end %>

@@ -10,7 +10,8 @@ module MemberHelper
 
   def profile_options(member)
     if member.has_profile?
-      render partial: 'profiles/edit', locals: { member: member }
+      @profile = ProfileDecorator.new(member.profile)
+      render partial: 'profiles/show', locals: { profile: @profile }
     else
       render partial: 'profiles/new', locals: { member: member }
     end
@@ -19,13 +20,13 @@ module MemberHelper
   def role_options(member)
     if member.has_both_roles?
       capture do
-        concat render partial: 'profiles/edit', locals: { member: member }
-        concat render partial: 'host_roles/edit', locals: { member: member }
+        concat render partial: 'profiles/show', locals: { member: member }
+        concat render partial: 'host_roles/show', locals: { member: member }
       end
     elsif member.has_host_role?
-      render partial: 'host_roles/edit', locals: { member: member }
+      render partial: 'host_roles/show', locals: { member: member }
     elsif member.has_guest_role?
-      render partial: 'guest_roles/edit', locals: { member: member }
+      render partial: 'guest_roles/show', locals: { member: member }
 
     end
   end

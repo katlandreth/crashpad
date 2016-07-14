@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    render plain: '¯\_(ツ)_/¯'
   end
 
   def new
