@@ -1,10 +1,17 @@
-<div class="profile-image col-md-4">
+<div class="profile-card col-md-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h4 class="pull-left">Profile</h4>
+    </div>
+    <div class="col-md-6">
+      <button class="round-button pull-right" role="button"><span class="glyphicon glyphicon-pencil"></span></button></br>
+    </div>
+  </div>
   <%= image_tag current_member.profile.image, size: "200x200" %></br>
-  <%= link_to 'Edit Profile Picture', edit_profile_path(current_member), class: 'modal-trigger', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %></br>
-</div>
-
-<div class="col-md-8">
-  <h4><%= @profile.name %></h4>
-  <p><%= @profile.smoking_status %></p>
-  <p><%= @profile.pet_status %></p>
+  <%= render partial: 'profiles/image_links', locals: {profile: @profile} %></br>
+  <div class="card-description">
+    <h4><%= @profile.name %></h4>
+    <p><%= @profile.smoking_status %>, <%= @profile.pet_status %> </p>
+    <p class="greyed-out">Click the Edit button to add a bio here so hosts and members can get to know you.</p>
+  </div>
 </div>

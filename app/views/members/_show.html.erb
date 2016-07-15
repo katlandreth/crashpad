@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>Membership Info</h2>
     Thanks for signing up! You can edit your info or add a <%= host_or_guest(current_member) %> account to your membership here on your profile page.
@@ -19,21 +19,31 @@
     <div class="tab-content">
       <div class="tab-pane active" role="tabpanel" id="profileOptionsTab">
         <div class="">
-          <%= profile_options(@member) %>
+          <%#= profile_options(@member) %>
         </div>
       </div>
 
       <div class="tab-pane" role="tabpanel" id="roleOptionsTab">
         <div class=" ">
-          <%= role_options(@member) %>
+          <%#= role_options(@member) %>
         </div>
       </div>
 
       <div class="tab-pane" role="tabpanel" id="memberOptionsTab">
         <div class=" ">
-          <%= member_options(@member) %>
+          <%#= member_options(@member) %>
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Membership Info</h2>
+    Thanks for signing up! You can edit your info or add a <%= host_or_guest(current_member) %> account to your membership here on your profile page.</br></br>
+      <%= profile_options(@member) %>
+      <%= role_options(@member) %>
+      <%= member_options(@member) %>
   </div>
 </div>
