@@ -34,7 +34,7 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  'mystery-man.png' #rails will look at 'app/assets/images/mystery-man.png'
+  'watercolor-user.png' #rails will look at 'app/assets/images/mystery-man.png'
    end
 
   # Process files as they are uploaded:
