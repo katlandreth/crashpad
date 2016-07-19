@@ -17,7 +17,7 @@ feature "visiting the website to sign in" do
     visit root_path
     expect(page).to have_content("Welcome to crashpad")
 
-    click_link "Sign in here"
+    first(:link, "Sign in here").click
     fill_in_signin_fields
     expect(page).to have_content("Signed in successfully.")
   end

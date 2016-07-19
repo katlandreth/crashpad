@@ -21,8 +21,8 @@ feature "visiting their profile page," do
     click_button "Sign in"
     expect(page).to have_content("Membership Info")
 
-    click_link "Profile Options"
-    click_link "Edit Profile Picture"
+    #click_link "Profile Options"
+    click_link "Upload A Profile Picture"
     attach_file "upload-profile-picture", Rails.root + 'spec/fixtures/test-upload.jpg'
     expect(page).to have_css("img[src*='data:image/jpeg;base64']") #upload_preview.js makes a base 64 img preview before upload
 
