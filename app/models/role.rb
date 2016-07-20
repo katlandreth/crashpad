@@ -1,8 +1,9 @@
 class Role
 
-  def initialize(member, host = nil_host, guest = nil_guest)
+  def initialize(member, host, guest)
     @member = member
     @host = host
     @guest = guest
   end
+
 end
