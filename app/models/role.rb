@@ -1,5 +1,7 @@
 class Role
 
+  attr_accessor :host, :guest
+
   def initialize(host = nil, guest = nil)
     @host = host
     @guest = guest
