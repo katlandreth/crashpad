@@ -28,4 +28,10 @@ RSpec.describe Role do
     object = role.host
     expect(object).to eq host
   end
+
+  it 'returns the Guest object' do
+    role = Role.new(host, guest)
+    object = role.guest
+    expect(object).to eq guest
+  end
 end
