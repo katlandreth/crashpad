@@ -16,4 +16,10 @@ RSpec.describe Role do
     role_kind = role.kind
     expect(role_kind).to eq 'guest'
   end
+
+  it 'returns both if the member has both a guest role and a host role' do
+    role = Role.new(host, guest)
+    role_kind = role.kind
+    expect(role_kind).to eq 'both'
+  end
 end
