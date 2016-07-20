@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+class DashboardController < ApplicationController
   respond_to :json, :js, :html
 
   def create
