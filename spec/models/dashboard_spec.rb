@@ -21,11 +21,11 @@ RSpec.describe Role do
     object = dashboard.role
     expect(object).to eq role
   end
-  
-  # it 'returns the Profile object' do
-  #   dashboard = Dashboard.new(member, role, profile)
-  #   object = dashboard.profile
-  #   expect(object).to eq profile
-  # end
+
+  it 'returns the Profile object' do
+    dashboard = Dashboard.new(member, role, profile)
+    object = dashboard.profile
+    expect(object).to eq profile
+  end
 
 end
