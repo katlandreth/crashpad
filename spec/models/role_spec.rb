@@ -22,4 +22,10 @@ RSpec.describe Role do
     role_kind = role.kind
     expect(role_kind).to eq 'both'
   end
+
+  it 'returns the Host object' do
+    role = Role.new(host, guest)
+    object = role.host
+    expect(object).to eq host
+  end
 end
