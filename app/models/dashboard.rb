@@ -21,7 +21,7 @@ class Dashboard
   def member_options
     if @profile != nil
       @decorated_profile = ProfileDecorator.new(@profile)
-      @view.render partial: 'shared/member_card', locals: { profile: @profile, member: @member }
+      @view.render partial: 'dashboard/member_card', locals: { profile: @profile, member: @member }
     else
       @view.render partial: 'profiles/new', locals: { member: @member }
     end
@@ -30,7 +30,7 @@ class Dashboard
   def role_options
     if @profile != nil
       @decorated_profile = ProfileDecorator.new(@profile)
-      @view.render partial: 'shared/role_card', locals: { profile: @profile, role: @role }
+      @view.render partial: 'dashboard/role_card', locals: { profile: @profile, role: @role }
     else
       @view.render partial: 'profiles/new', locals: { member: @member }
     end
