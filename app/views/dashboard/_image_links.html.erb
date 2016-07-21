@@ -1,7 +1,7 @@
 
 <%- if decorated_profile.image? %>
-  <%= link_to 'Edit Picture', edit_profile_path(profile.id), class: 'modal-trigger btn btn-default btn-xs', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %>
-  <%= link_to 'Delete Picture', profile_remove_image_path(profile.id), class: "btn btn-default btn-xs", data: { confirm: "You sure?" } %>
+  <%= link_to 'Edit Picture', edit_profile_path(profile.id), class: 'modal-trigger btn btn-default edit-image-btn', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %>
+  <%= link_to 'Delete Picture', profile_remove_image_path(profile.id), class: "btn btn-default edit-image-btn", data: { confirm: "You sure?" } %>
 <% else %>
-  <%= link_to 'Upload A Profile Picture', edit_profile_path(profile.id), class: 'modal-trigger btn btn-default btn-xs', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %>
+  <%= link_to 'Upload A Profile Picture', edit_profile_path(profile.id), class: 'modal-trigger btn btn-default edit-image-btn', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %>
 <% end -%>

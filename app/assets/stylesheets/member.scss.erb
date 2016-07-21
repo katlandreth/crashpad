@@ -365,9 +365,15 @@ span.logo-small {
   transform: translateX(-100%);
   transition: all 0.35s cubic-bezier(.54,.01,.53,1);
   z-index:1000;
+  padding:15px;
   &.slide-in{
     transform: translateX(0);
   }
+}
+
+.edit-image {
+  margin-bottom:15px;
+  overflow:auto;
 }
 
 .card-wrapper {
@@ -383,8 +389,6 @@ span.logo-small {
 
 
 .profile-card {
-  // padding:20px;
-  text-align:center;
   box-shadow: 0 0 3px rgba(0,0,0,0.4);
   height:440px;
   overflow-y:scroll;
@@ -397,6 +401,41 @@ span.logo-small {
   h4 {
     display:inline;
     margin:0;
+  }
+}
+
+.card-content {
+  text-align:center;
+}
+
+.edit-card {
+  .form-group {
+    overflow:auto;
+    margin:5px;
+  }
+  img {
+    display:inline-block;
+    float:left;
+  }
+  .edit-image-btn {
+    float:right;
+    width: 50%;
+    margin-bottom:10px;
+  }
+  hr {
+    margin-top:15px;
+    margin-bottom: 15px;
+  }
+  input, select, textarea {
+    float: right;
+    width: 65%;
+  }
+  label{
+    font-size:12px;
+    float:left;
+  }
+  a {
+    font-size:12px;
   }
 }
 

@@ -1,7 +1,27 @@
-<%= image_tag current_member.profile.image, size: "100x100" %></br>
-
-<%= render partial: 'image_links', locals: { profile: profile, decorated_profile: decorated_profile } %>
-
+<div class="edit-image">
+  <%= image_tag current_member.profile.image, size: "90x90" %>
+  <%= render partial: 'image_links', locals: { profile: profile, decorated_profile: decorated_profile } %>
+</div>
+<hr>
 <%= simple_form_for(:profile, remote: true, html: {id: 'edit_profile'}) do |f| %>
-  <%= render partial: 'profiles/form', locals: {f: f} %>
+<%= f.error_notification %>
+<%= f.input :member_id, as: :hidden, :input_html => { :value => current_member.id }%>
+<div class="form-group">
+  <%= f.input :first_name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.input :last_name, class: "form-control" %>
+</div>
+<hr>
+<div class="form-group">
+  <%= f.input :smoker, as: :select, collection: [["not a smoker", false], ["yes, smoker", true]], class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.input :pet_owner, as: :select, collection: [["not a pet owner", false], ["yes, pet owner", true]], class: "form-control" %>
+</div>
+<hr>
+  <div class="form-group">
+    <%= f.input :bio, as: :text, class: "form-control" %>
+  </div>
+  <%= f.submit "Edit", class: "btn btn-primary pull-right" %>
 <% end %>
