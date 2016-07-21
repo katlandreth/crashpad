@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # get 'members/index'
   resources :guest_roles
   resources :host_roles
+  resources :dashboard
   resources :profiles do
     get 'remove_image', as: :remove_image
   end

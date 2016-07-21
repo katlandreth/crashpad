@@ -15,6 +15,7 @@ class GuestRolesController < ApplicationController
   def create
     @guest = GuestRole.new(guest_params)
     if @guest.save!
+      Role.new(nil, @guest)
       flash[:success] = "Congrats, you're now a guest."
       redirect_to controller: 'profiles', action: 'new'
     else

@@ -9,10 +9,10 @@
       </div>
     </div>
     <%= image_tag current_member.profile.image, size: "200x200" %></br>
-    <%= render partial: 'profiles/image_links', locals: {profile: @profile, decorated_profile: @decorated_profile} %></br>
+    <%= render partial: 'profiles/image_links', locals: {profile: profile, decorated_profile: decorated_profile} %></br>
     <div class="card-description">
-      <h4><%= @profile.name %></h4>
-      <p><%= @profile.smoking_status %>, <%= @profile.pet_status %> </p>
+      <h4><%= decorated_profile.name %></h4>
+      <p><%= decorated_profile.smoking_status %>, <%= decorated_profile.pet_status %> </p>
       <p class="greyed-out">Click the Edit button to add a bio here so hosts and members can get to know you.</p>
     </div>
   </div>

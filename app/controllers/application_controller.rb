@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :member_not_authorized
 
+  def after_sign_in_path_for(resource)
+    new_dashboard_path
+  end
+
   private
   def member_not_authorized
     flash[:alert] = "You aren't authorized to perform that action."

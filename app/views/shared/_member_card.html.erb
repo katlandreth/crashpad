@@ -10,7 +10,7 @@
     </div>
 
       <div class="panel-body">
-        <%= form_for(@member, :as => :member, :url => member_registration_path(@member), :html => { :method => :put }) do |f| %>
+        <%= form_for(member, :as => :member, :url => member_registration_path(member), :html => { :method => :put }) do |f| %>
           <div class="form-group">
             <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, class: "form-control" %>

@@ -2,8 +2,8 @@
   <div class="col-md-8 col-md-offset-2">
     <h2>Membership Info</h2>
     Thanks for signing up! You can edit your info or add a <%= host_or_guest(current_member) %> account to your membership here on your profile page.</br></br>
-      <%= profile_options(@member) %>
-      <%= role_options(@member) %>
-      <%= member_options(@member) %>
+      <%= @dashboard.profile_options %>
+      <%= @dashboard.role_options %>
+      <%= @dashboard.member_options %>
   </div>
 </div>

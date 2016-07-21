@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
     authorize @profile
     if @profile.save!
       flash[:notice] = 'Your profile was created'
-      redirect_to member_path(@profile.member_id)
+      redirect_to new_dashboard_path
     else
       flash.now[:notice] = 'Woops! Your profile wasn\'t created.'
       render 'new'
@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
   def update
     if @profile.update_attributes(profile_params)
       flash[:success] = 'Your profile was updated.'
-      redirect_to member_path(@profile.member_id)
+      redirect_to new_dashboard_path
     else
       flash[:error] = 'Woops, something wen\'t wrong. Your profile was not updated.'
     end
@@ -50,10 +50,10 @@ class ProfilesController < ApplicationController
     @profile.remove_image!
     if @profile.save
       flash[:success] = 'The image was deleted.'
-      redirect_to member_path(@profile.member_id)
+      redirect_to new_dashboard_path
     else
       flash[:error] = 'Something went wrong, the image was not deleted.'
-      redirect_to member_path(@profile.member_id)
+      redirect_to new_dashboard_path
     end
   end
 

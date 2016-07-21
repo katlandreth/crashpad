@@ -15,6 +15,7 @@ class HostRolesController < ApplicationController
   def create
     @host = HostRole.new(host_params)
     if @host.save!
+      Role.new(@host)
       flash[:success] = "Congrats, you're now a guest."
       redirect_to controller: 'profiles', action: 'new'
     else
