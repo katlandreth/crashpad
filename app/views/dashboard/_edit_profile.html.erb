@@ -1,0 +1,7 @@
+<%= image_tag current_member.profile.image, size: "100x100" %></br>
+
+<%= render partial: 'image_links', locals: { profile: profile, decorated_profile: decorated_profile } %>
+
+<%= simple_form_for(:profile, remote: true, html: {id: 'edit_profile'}) do |f| %>
+  <%= render partial: 'profiles/form', locals: {f: f} %>
+<% end %>

@@ -1,19 +1,20 @@
-<div class="col-md-4">
-  <div class="profile-card">
-    <div class="row">
-      <div class="col-md-6">
-        <h4 class="pull-left">Profile</h4>
-      </div>
-      <div class="col-md-6">
-        <button class="round-button pull-right" role="button"><span class="glyphicon glyphicon-pencil"></span></button></br>
-      </div>
-    </div>
-    <%= image_tag current_member.profile.image, size: "200x200" %></br>
-    <%= render partial: 'profiles/image_links', locals: {profile: profile, decorated_profile: decorated_profile} %></br>
-    <div class="card-description">
-      <h4><%= decorated_profile.name %></h4>
-      <p><%= decorated_profile.smoking_status %>, <%= decorated_profile.pet_status %> </p>
-      <p class="greyed-out">Click the Edit button to add a bio here so hosts and members can get to know you.</p>
-    </div>
+<% content_for :edit_card_content do %>
+  <%= render partial: 'edit_profile', locals: { profile: profile, decorated_profile: decorated_profile } %>
+<% end %>
+
+<% content_for :card_title do %>
+  Profile
+<% end %>
+
+<% content_for :show_card_content do %>
+<div class="card-content">
+  <%= image_tag current_member.profile.image, size: "200x200" %></br>
+  <div class="card-description">
+    <h4><%= decorated_profile.name %></h4>
+    <p><%= decorated_profile.smoking_status %>, <%= decorated_profile.pet_status %> </p>
+    <p class="greyed-out">Click the Edit button to add a bio here so hosts and members can get to know you.</p>
   </div>
 </div>
+<% end %>
+
+<%= render 'card' %>

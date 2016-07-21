@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div class="card-wrapper">
+    <div class="profile-card card">
+      <div class="edit-card">
+        <%= yield :edit_card_content %>
+      </div>
+      <div class="card-head">
+        <div class="col-md-6">
+          <h4 class="pull-left"><%= yield :card_title %></h4>
+        </div>
+        <div class="col-md-6">
+          <button class="round-button pull-right edit-card-button" role="button"><span class="glyphicon glyphicon-pencil"></span></button></br>
+        </div>
+      </div>
+      <%= yield :show_card_content %>
+    </div>
+  </div>
+</div>
