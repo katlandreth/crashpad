@@ -39,6 +39,7 @@ class ProfilesController < ApplicationController
       redirect_to new_dashboard_path
     else
       flash[:error] = 'Woops, something wen\'t wrong. Your profile was not updated.'
+      redirect_to new_dashboard_path
     end
   end
 
@@ -68,6 +69,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :smoker, :pet_owner, :member_id, :image)
+    params.require(:profile).permit(:first_name, :last_name, :smoker, :pet_owner, :member_id, :image, :bio)
   end
 end

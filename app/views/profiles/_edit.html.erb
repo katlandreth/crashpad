@@ -1,14 +1,27 @@
-<h3>Edit Your Profile</h3>
-
-<div class="profile-image col-md-4">
-  <%= image_tag current_member.profile.image, size: "200x200" %></br>
-  <%= link_to 'Edit Profile Picture', edit_profile_path(current_member), class: 'modal-trigger', 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %></br>
-  <%= link_to "Delete Your Profile Picture", profile_remove_image_path(current_member.profile.id), data: { confirm: "You sure?" } %>
+<div class="edit-image">
+  <%= image_tag current_member.profile.image, size: "90x90" %>
+  <%= render partial: 'image_links', locals: { profile: profile, decorated_profile: decorated_profile } %>
 </div>
-
-<div class="col-md-8">
-  <%= simple_form_for(:profile, url: profile_path, remote: true, html: {id: 'edit_profile'}) do |f| %>
-    <%= render partial: 'profiles/form', locals: {f: f} %>
-    <%= f.submit "Finish", class: "btn btn-primary pull-right" %>
-  <% end %>
+<hr>
+<%= simple_form_for(profile, method: 'patch',  remote: true, html: {id: 'edit_profile'}) do |f| %>
+<%= f.error_notification %>
+<%= f.input :member_id, as: :hidden, :input_html => { :value => current_member.id }%>
+<div class="form-group">
+  <%= f.input :first_name, class: "form-control" %>
 </div>
+<div class="form-group">
+  <%= f.input :last_name, class: "form-control" %>
+</div>
+<hr>
+<div class="form-group">
+  <%= f.input :smoker, as: :select, collection: [["not a smoker", false], ["yes, smoker", true]], include_blank: false, selected: profile.smoker, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.input :pet_owner, as: :select, collection: [["not a pet owner", false], ["yes, pet owner", true]], include_blank: false, selected: profile.pet_owner, class: "form-control" %>
+</div>
+<hr>
+  <div class="form-group">
+    <%= f.input :bio, as: :text, class: "form-control" %>
+  </div>
+  <%= f.submit "Save Changes", class: "btn btn-primary pull-right" %>
+<% end %>

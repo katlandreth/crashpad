@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.edit-card-button').click(function(){
+  $('body').on('click', '.edit-card-button', function(){
     $(this).closest('.card').find('.edit-card').toggleClass('slide-in');
     $(this).toggleClass('round-button-clicked');
   });
