@@ -14,4 +14,8 @@ class Profile < ActiveRecord::Base
     self.pet_owner
   end
 
+  def profile_bio?
+    self.bio != nil
+  end
+
 end

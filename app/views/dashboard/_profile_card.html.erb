@@ -12,7 +12,7 @@
   <div class="card-description">
     <h4><%= decorated_profile.name %></h4>
     <p><%= decorated_profile.smoking_status %>, <%= decorated_profile.pet_status %> </p>
-    <p class="greyed-out">Click the Edit button to add a bio here so hosts and members can get to know you.</p>
+    <p class="greyed-out"><%= decorated_profile.profile_bio %></p>
   </div>
 </div>
 <% end %>

@@ -27,6 +27,15 @@ class ProfileDecorator
     end
   end
 
+  def profile_bio
+    binding.pry
+    if @profile.profile_bio? == true
+      @profile.bio
+    else
+      "Click the pencil button to add a bio"
+    end
+  end
+
   def image
     @profile.image
   end
