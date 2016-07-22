@@ -28,7 +28,6 @@ class ProfileDecorator
   end
 
   def profile_bio
-    binding.pry
     if @profile.profile_bio? == true
       @profile.bio
     else
