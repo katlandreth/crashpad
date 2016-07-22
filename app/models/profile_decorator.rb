@@ -20,7 +20,7 @@ class ProfileDecorator
   end
 
   def pet_status
-    if @profile.smoker? == false
+    if @profile.pet_owner? == false
       "not a pet owner"
     else
       "pet owner"
