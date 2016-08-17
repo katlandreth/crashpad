@@ -11,6 +11,8 @@ require 'capybara-screenshot/rspec'
 require 'simple_bdd'
 require 'shoulda/matchers'
 require "pundit/rspec"
+require "devise"
+require 'support/controller_macros'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -43,7 +45,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.include SimpleBdd, type: :feature
-  config.include Devise::TestHelpers, :type => :controller
+  # config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)

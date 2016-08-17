@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   respond_to :json, :js, :html
-  before_action :authenticate_member!
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authorize_profile, only: [:index, :show, :edit, :update, :destroy]
 
