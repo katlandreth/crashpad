@@ -1,0 +1,11 @@
+<%= link_to 'Back to Locations', locations_path %>
+<h1><%= @location.name %></h1>
+<div>
+  <%#= @location.image %>
+</div>
+
+<div>
+  <%= @location.location_street %></br>
+  <%= @location.location_city %>, TX
+  <%= @location.location_zip %>
+</div>

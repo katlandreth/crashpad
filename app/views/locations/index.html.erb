@@ -1,0 +1,16 @@
+<h2>Your Locations</h2>
+<div class="new-location-button">
+  <%= link_to '+', new_location_path, class: 'modal-trigger btn btn-default edit-image-btn',
+  'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', remote: true %>
+</div>
+
+<% @locations.each do |location| %>
+  <div class="location-card">
+    <h3><%= location.name %></h3>
+    <%= link_to "delete", location, method: :delete, data: { confirm: "You sure you want to delete #{location.name}?" } %>
+
+    <%#= image_tag location.location_images.primary%>
+  <div>
+<% end %>
+
+<%= render 'shared/modal' %>

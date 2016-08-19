@@ -30,4 +30,12 @@ class Member < ActiveRecord::Base
     has_guest_role? && has_host_role?
   end
 
+  def role
+    if self.has_host_role?
+      self.host_role
+    elsif self.has_guest_role?
+      self.guest_role
+    end
+  end
+
 end

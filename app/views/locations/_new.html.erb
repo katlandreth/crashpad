@@ -1,0 +1,16 @@
+<%= simple_form_for(@location, as: :location, url: locations_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :host_role_id, as: :hidden, :input_html => { :value => current_member.role.id }%>
+  <div class="form-group">
+    <%= f.input :name,  class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :max_occupants,  class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :location_street, class: "form-control" %>
+    <%= f.input :location_city, class: "form-control" %>
+    <%= f.input :location_zip, class: "form-control" %>
+  </div>
+  <%= f.submit "Create Location", class: "btn btn-primary pull-right" %>
+<% end %>

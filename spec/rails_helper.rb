@@ -100,3 +100,5 @@ Capybara::Webkit.configure do |config|
   config.allow_url("fonts.googleapis.com")
   config.allow_url("khms0.googleapis.com")
 end
+
+Capybara::Screenshot.prune_strategy = :keep_last_run
