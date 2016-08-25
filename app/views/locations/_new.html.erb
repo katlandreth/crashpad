@@ -1,4 +1,4 @@
-<%= simple_form_for(@location, as: :location, url: locations_path) do |f| %>
+<%= simple_form_for(@location, as: :location, url: locations_path, :html => { :multipart => true }) do |f| %>
   <%= f.error_notification %>
   <%= f.input :host_role_id, as: :hidden, :input_html => { :value => current_member.role.id }%>
   <div class="form-group">
@@ -11,6 +11,14 @@
     <%= f.input :location_street, class: "form-control" %>
     <%= f.input :location_city, class: "form-control" %>
     <%= f.input :location_zip, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.fields_for :location_images do |image| %>
+     <div class="field">
+       <%= image.label :image %><br>
+       <%= image.file_field :image, :multiple => true, name: "location_images[image][]" %>
+     </div>
+   <% end %>
   </div>
   <%= f.submit "Create Location", class: "btn btn-primary pull-right" %>
 <% end %>

@@ -11,16 +11,22 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    @images = @location.location_images.all
   end
 
   def new
     @location = Location.new()
+    @image = @location.location_images.build
     respond_with @location
   end
 
   def create
     @location = Location.new(location_params)
     if @location.save!
+      binding.pry
+      params[:location_images]['image'].each do |img|
+          @location_image = @location.location_images.create!(:image => img)
+       end
       flash[:success] = 'location saved!'
       redirect_to @location
     end
@@ -36,6 +42,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :location_street, :location_city, :location_zip, :host_role_id, :max_occupants);
+    params.require(:location).permit(:name, :location_street, :location_city,
+    :location_zip, :host_role_id, :max_occupants, location_image_attributes: [:id, :location_id, :image]);
   end
 end

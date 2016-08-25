@@ -9,6 +9,7 @@
 <% content_for :show_card_content do %>
 <div class="card-content">
   <%= image_tag current_member.profile.image, size: "200x200" %></br>
+  
   <div class="card-description">
     <h4><%= decorated_profile.name %></h4>
     <p><%= decorated_profile.smoking_status %>, <%= decorated_profile.pet_status %> </p>

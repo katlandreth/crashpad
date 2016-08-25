@@ -1,7 +1,10 @@
 <%= link_to 'Back to Locations', locations_path %>
 <h1><%= @location.name %></h1>
 <div>
-  <%#= @location.image %>
+  <% @images.each do |image|%>
+    <%= image_tag image.image %></br>
+    <% binding.pry %>
+  <% end %>
 </div>
 
 <div>

@@ -1,6 +1,7 @@
 class Location < ActiveRecord::Base
-
   belongs_to :host_role
+  has_many :location_images, dependent: :destroy
+  accepts_nested_attributes_for :location_images
 
   validates :name, presence: true
   validates :location_street, presence: true

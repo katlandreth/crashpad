@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819154656) do
+ActiveRecord::Schema.define(version: 20160819195953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20160819154656) do
   end
 
   add_index "host_roles", ["member_id"], name: "index_host_roles_on_member_id", using: :btree
+
+  create_table "location_images", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "location_images", ["location_id"], name: "index_location_images_on_location_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -84,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160819154656) do
 
   add_foreign_key "guest_roles", "members"
   add_foreign_key "host_roles", "members"
+  add_foreign_key "location_images", "locations"
   add_foreign_key "locations", "host_roles"
   add_foreign_key "profiles", "members"
 end
