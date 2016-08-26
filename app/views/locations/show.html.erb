@@ -1,10 +1,12 @@
 <%= link_to 'Back to Locations', locations_path %>
 <h1><%= @location.name %></h1>
-<div>
+<div class="gallery">
   <% @images.each do |image|%>
+  <div class="gallery-img-wrapper">
   <a href="<%= image.image.url %>">
-    <%= image_tag image.image, size: "200x200" %>
+    <%= image_tag image.image, size: "200" %>
   </a>
+</div>
   <% end %>
 </div>
 

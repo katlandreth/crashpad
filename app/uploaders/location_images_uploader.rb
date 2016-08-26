@@ -38,6 +38,14 @@ class LocationImagesUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  process :auto_orient
+
+  def auto_orient
+    manipulate! do |img|
+       img.auto_orient
+     end
+   end
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
@@ -46,6 +54,7 @@ class LocationImagesUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fill => [200, 200]
   end
+
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
