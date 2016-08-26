@@ -23,7 +23,6 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save!
-      binding.pry
       params[:location_images]['image'].each do |img|
           @location_image = @location.location_images.create!(:image => img)
        end

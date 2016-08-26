@@ -2,8 +2,9 @@
 <h1><%= @location.name %></h1>
 <div>
   <% @images.each do |image|%>
-    <%= image_tag image.image %></br>
-    <% binding.pry %>
+  <a href="<%= image.image.url %>">
+    <%= image_tag image.image, size: "200x200" %>
+  </a>
   <% end %>
 </div>
 
