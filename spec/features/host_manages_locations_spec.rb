@@ -8,24 +8,27 @@ feature "a Host " do
     FactoryGirl.create(:member, profile: profile, host_role: host_role)
   end
 
+  let(:location) { location = FactoryGirl.create(:location) }
+
   def fill_in_signin_fields
     fill_in "member[email]", with: member.email
     fill_in "member[password]", with: member.password
   end
 
   def fill_in_new_location_fields
-    fill_in "location[name]", with: member.email
-    fill_in "location[location_street]", with: member.password
-    fill_in "location[location_city]", with: member.password
-    fill_in "location[location_zip]", with: member.password
-    fill_in "location[max_occupants]", with: member.password
+    fill_in "location[name]", with: location.name
+    fill_in "location[location_street]", with: location.location_street
+    fill_in "location[location_city]", with: location.location_city
+    fill_in "location[location_zip]", with: location.location_zip
+    fill_in "location[max_occupants]", with: "2"
+
   end
 
   scenario "creates a new Location successfully", :js => true do
     visit root_path
     expect(page).to have_content("Welcome to crashpad")
 
-    click_link "Sign in here"
+    find("#lrg-screen-signin").click
     fill_in_signin_fields
     click_button "Sign in"
     expect(page).to have_content("Membership Info")
@@ -37,15 +40,11 @@ feature "a Host " do
 
     find('.new-location-button a').click
     fill_in_new_location_fields
+    attach_file "location_location_images_attributes_0_image", Rails.root + 'spec/fixtures/thebean.jpg'
+
     click_button "Create Location"
-    expect(page).to have_content("Your Location was Created!")
 
-    click_link "Add Location Images"
-    attach_file "upload-location-images", [Rails.root + 'spec/fixtures/test-upload.jpg', Rails.root + 'spec/fixtures/test-upload-2.jpg' ]
-    expect(page).to have_css("img[src*='data:image/jpeg;base64']") #upload_preview.js makes a base 64 img preview before upload
-
-    click_button "Upload Images"
-    expect(page).to have_content("Your Location Was Updated.")
+    expect(page).to have_content("Location Saved!")
   end
 
 end

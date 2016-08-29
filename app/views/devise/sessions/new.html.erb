@@ -7,7 +7,7 @@
       <%= link_to t(".sign_up", :default => "Sign up"), new_member_registration_path, :remote => true, 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', class: "btn btn-primary btn-lg pull-right hidden-xs"  %><br />
       <%= link_to t(".sign_up", :default => "Sign up"), new_member_registration_path, :remote => true, 'data-toggle' => "modal", 'data-target' => "#myModal", method: 'get', class: "btn btn-primary btn-lg center visible-xs"  %><br />
     </br>
-    <p class="hidden-xs">Alredy a member? <a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign in here</a></p>
+    <p class="hidden-xs">Alredy a member? <a href="#" data-toggle="modal" data-target="#sign-in-modal" id="lrg-screen-signin">Sign in here</a></p>
     <a href="#" data-toggle="modal" data-target="#sign-in-modal" class="visible-xs">Sign in here</a>
   </div>
   <a class="scroll_down scroll_button hidden-xs" href="#explore_section" type="button">▾</a>
