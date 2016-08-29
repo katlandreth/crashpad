@@ -6,7 +6,8 @@
 
 <% @locations.each do |location| %>
   <div class="location-card">
-    <h3><%= location.name %></h3>
+    <h3><%= link_to location.name, location_path(location.id) %></h3>
+    <%= image_tag location.location_images.first.image.url, size: "200" %>
     <%= link_to "delete", location, method: :delete, data: { confirm: "You sure you want to delete #{location.name}?" } %>
 
     <%#= image_tag location.location_images.primary%>
