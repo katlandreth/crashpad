@@ -40,7 +40,7 @@ feature "a Host " do
 
     find('.new-location-button a').click
     fill_in_new_location_fields
-    attach_file "location_location_images_attributes_0_image", Rails.root + 'spec/fixtures/thebean.jpg'
+    attach_file "location_location_images_attributes_0_image", [Rails.root + 'spec/fixtures/thebean.jpg', Rails.root + 'spec/fixtures/test-upload.jpg']
 
     click_button "Create Location"
 
