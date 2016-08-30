@@ -1,11 +1,23 @@
 <%= link_to 'Back to Locations', locations_path %>
 <h1><%= @location.name %></h1>
+<%= simple_form_for(@location, as: :location, url: location_path, :html => { :multipart => true }) do |f| %>
+  <%= f.hidden_field :id, value: @location.id %>
+  <%= f.fields_for :location_images, f.object.location_images.build do |image| %>
+   <div class="field">
+     <%= image.label :image %><br>
+     <%= image.file_field :image, :multiple => true, name: "location_images[image][]" %>
+   </div>
+  <% end %>
+  <%= f.submit "Upload Images", class: "btn btn-primary pull-right" %>
+<% end %>
+
 <div class="gallery">
   <% @images.each do |image|%>
   <div class="gallery-img-wrapper">
   <a href="<%= image.image.url %>">
     <%= image_tag image.image, size: "200" %>
   </a>
+  <%= link_to 'Delete Image', location_delete_image_path(location_id: @location.id, id: image.id), class: "btn btn-default edit-image-btn", data: { confirm: "You sure?" } %>
 </div>
   <% end %>
 </div>

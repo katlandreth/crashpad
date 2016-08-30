@@ -31,12 +31,29 @@ class LocationsController < ApplicationController
     end
   end
 
+  def update
+    @location = Location.find(params[:id])
+    @image = LocationImage.new(location_params[:image])
+    if @location.update_attributes(location_params)
+      params[:location_images]['image'].each do |img|
+          @location_image = @location.location_images.create!(:image => img)
+       end
+      flash[:success] = 'location saved!'
+      redirect_to @location
+    end
+  end
+
   def destroy
     Location.find(params[:id]).destroy
     flash[:success] = "Location deleted"
     redirect_to locations_path
   end
 
+  def delete_image
+    LocationImage.find(params[:id]).destroy
+    flash[:success] = "image deleted"
+    redirect_to location_path(id: params[:location_id])
+  end
 
   private
 
